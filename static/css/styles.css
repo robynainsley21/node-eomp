@@ -5,3 +5,7 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+.table{
+    margin: 3rem;
+}
