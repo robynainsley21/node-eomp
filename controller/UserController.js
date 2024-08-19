@@ -1,41 +1,36 @@
-import express from "express"
-import bodyParser from "body-parser"
-import { products } from "../model/index.js"
+import express from 'express'
+import bodyParser from 'body-parser'
+import { users } from '../model/index.js'
 
-const productRouter = express.Router();
+const userRouter = express.Router()
 
-productRouter.use(bodyParser.json())
+userRouter.use(bodyParser.json())
 
-/**all products */
-productRouter.get("/", (req, res) => {
-    products.fetchProducts(req, res)
+userRouter.get('/', (req, res) => {
+    users.fetchUsers(req, res)
 })
 
-/**single product */
-productRouter.get('/:id', (req, res) => {
-    products.fetchProduct(req, res)
+userRouter.get('/:id', (req, res) => {
+    users.fetchUser(req, res)
 })
 
-/**recent products */
-productRouter.get('/recent', (req, res) => {
-    products.recentProducts(req, res)
+userRouter.post('/register', (req, res) => {
+    users.registerUser(req, res)
 })
 
-/**add product */
-productRouter.post('/add', (req, res) => {
-    products.addProduct(req, res)
+userRouter.patch('/:id', (req, res) => {
+    users.updateUser(req, res)
 })
 
-/**update product */
-productRouter.patch('/:id', (req, res) => {
-    products.updateProduct(req, res)
+userRouter.delete('/:id', (req, res) => {
+    users.deleteUser(req, res)
 })
 
-/**delete product */
-productRouter.delete('/:id', (req, res) => {
-    products.deleteProduct(req, res)
+userRouter.post('/login', (req, res) => {
+    users.login(req, res)
 })
 
 export {
-    productRouter
+    express,
+    userRouter
 }
