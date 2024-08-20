@@ -6,6 +6,15 @@
     box-sizing: border-box;
 }
 
-.table{
-    margin: 3rem;
+::-webkit-scrollbar{
+    display: none;
+}
+
+#backend-home{
+    width: 100vw;
+    margin: auto;
+}
+
+table{
+    min-width: 300px;
 }
