@@ -7,7 +7,7 @@ import { applyToken } from "@/service/AuthenticateUser.js";
 import { useCookies } from "vue3-cookies";
 
 const { cookies } = useCookies();
-const apiURL = "https://e-shop-yox8.onrender.com/";
+const apiURL = "https://node-eomp-pav1.onrender.com";
 
 export default createStore({
   state: {
