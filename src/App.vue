@@ -20,6 +20,7 @@ export default {
 html{
   background-color: #2E2E30;
 }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -27,6 +28,14 @@ html{
   text-align: center;
   color: #ffffff;
   background-color: #2E2E30;
+  margin-top: 65px;
+}
+
+.with-blur-backdrop {
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  height: inherit;
 }
 
 nav {

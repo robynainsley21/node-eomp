@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="row vh-100">
+    <div class="row">
       <div class="col-4 text-start m-auto ps-lg-5">
         <h1>TechFit</h1>
         <h6>Wear the Future, Own Your Potential.</h6>
