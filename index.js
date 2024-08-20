@@ -5,9 +5,17 @@ import { productRouter } from "./controller/ProductController.js";
 /**Creating the express app */
 const app = express();
 const port = +process.env.PORT || 4000;
-const router = express.Router();
 
 /**Middleware */
+// app.use(
+//   router,
+//   express.static("./static"),
+//   express.json(),
+//   express.urlencoded({ extended: true })
+// );
+
+
+
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Credentials", "true");
@@ -18,25 +26,22 @@ app.use((req, res, next) => {
 
   next();
 });
-
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(express.static("./static"))
+/**Routes */
 app.use("/users", userRouter);
 app.use("/products", productRouter);
-app.use(
-  router,
-  express.static("./static"),
-  express.json(),
-  express.urlencoded({ extended: true })
-);
 
 /**Endpoint*/
-router.get("^/$|/Node EOMP", (req, res) => {
+app.get("^/$|/Node EOMP", (req, res) => {
   res.status(200).sendFile(path.resolve("./static/html/index.html"));
 });
 
-router.get("*", (req, res) => {
+app.get("*", (req, res) => {
     res.json({
       status: 404,
-      message: "Resource not found",
+      message: 'Resource not found.'
     });
   });
 
