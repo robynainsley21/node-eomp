@@ -1,7 +1,6 @@
-import { userRouter } from "./controller/UserController.js";
+import { express, userRouter } from "./controller/UserController.js";
 import path from "path";
 import { productRouter } from "./controller/ProductController.js";
-import { express } from "express";
 
 /**Creating the express app */
 const app = express();
