@@ -27,7 +27,7 @@ class Products {
       const strQry = `
         SELECT *
         FROM Products
-        ORDER BY productID DESC
+        ORDER BY prodID DESC
         LIMIT 5;
         `;
 
@@ -50,7 +50,7 @@ class Products {
       const strQry = `
                 SELECT *
                 FROM Products
-                WHERE productID = ${req.params.id};
+                WHERE prodID = ${req.params.id};
             `;
       db.query(strQry, (err, result) => {
         if (err) throw new Error(`Specified product was not found`);
@@ -89,7 +89,7 @@ class Products {
       const strQry = `
                     UPDATE Products
                     SET ?
-                    WHERE productID = ${req.params.id};
+                    WHERE prodID = ${req.params.id};
                 `;
 
       db.query(strQry, [req.body], (err) => {
@@ -107,7 +107,7 @@ class Products {
     try {
       const strQry = `
         DELETE FROM Products
-        WHERE productID = ${req.params.id};
+        WHERE prodID = ${req.params.id};
         `;
 
       db.query(strQry, (err) => {
