@@ -1,6 +1,6 @@
 <template>
     <div>
-        
+        <h1>This is an single product page</h1>
     </div>
 </template>
 
