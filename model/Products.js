@@ -4,7 +4,7 @@ class Products {
   fetchProducts(req, res) {
     try {
       const strQry = `
-                SELECT productID, prodName, category, prodDescription, prodURL, amount
+                SELECT *
                 FROM Products;
             `;
       db.query(strQry, (err, results) => {
@@ -25,7 +25,7 @@ class Products {
   recentProducts(req, res) {
     try {
       const strQry = `
-        SELECT productID, prodName, category, prodDescription, prodURL, amount
+        SELECT *
         FROM Products
         ORDER BY productID DESC
         LIMIT 5;
@@ -48,7 +48,7 @@ class Products {
   fetchProduct(req, res) {
     try {
       const strQry = `
-                SELECT productID, prodName, category, prodDescription, prodURL, amount
+                SELECT *
                 FROM Products
                 WHERE productID = ${req.params.id};
             `;
