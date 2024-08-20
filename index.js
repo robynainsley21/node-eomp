@@ -1,4 +1,4 @@
-import { userRouter, express } from "./controller/UserController.js";
+import { userRouter } from "./controller/UserController.js";
 import path from "path";
 import { productRouter } from "./controller/ProductController.js";
 import { express } from "express";
