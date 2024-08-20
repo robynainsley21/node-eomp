@@ -1,6 +1,22 @@
 <template>
   <div class="home">
-    <h1>This is an home page</h1>
+    <div class="row">
+      <div class="col-4 text-start m-auto ps-lg-5">
+        <h1>TechFit</h1>
+        <h6>Wear the Future, Own Your Potential.</h6>
+        <div class="row gx-5">
+          <div class="col">
+            <button type="button" class="btn btn-primary btn-lg w-100">About</button>
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-primary btn-lg w-100">Products</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-8 m-auto">
+        <img class="vh-100 img-fluid" src="https://aneeqbass.github.io/node-eomp-images/apple_watch_6.jpeg" alt="apple_watch_6">
+      </div>
+   </div>  
   </div>
 </template>
 
