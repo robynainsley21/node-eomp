@@ -3,37 +3,6 @@
 
         <h1 class="mb-2 text-start">Products</h1>
 
-        <table class="table table-products ">
-                <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Read More</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>@mdo</td>
-                    </tr>
-                </tbody>
-        </table>
-
         <div class="row gap-2 justify-content-center my-2" v-if="products">
             <Card v-for="product in products()" :key="product.prodID">
                 <template #cardHeader>
@@ -76,7 +45,6 @@ components: {
   }
 }
 </script>
-
 
 <style>
 .table-products{

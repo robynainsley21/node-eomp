@@ -4,7 +4,7 @@ import axios from "axios";
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
 // import { applyToken } from "@/service/AuthenticateUser.js";
-import { useCookies } from "vue3-cookies";
+import { useCookies } from "vue3-cookies"; 
 
 const { cookies } = useCookies();
 const apiURL = "https://node-eomp-pav1.onrender.com/";
