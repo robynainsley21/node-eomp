@@ -26,8 +26,8 @@ class Users {
   fetchUser(req, res) {
     try {
       const strQry = `
-            SELECT * FROM users
-            WHERE userID = ${req.params.id}
+            SELECT * FROM Users
+            WHERE userID = ${req.params.id};
         `;
 
       db.query(strQry, (err, result) => {
@@ -48,15 +48,15 @@ class Users {
   async registerUser(req, res) {
     try {
       let data = req.body;
-      data.pwd = await hash(data.pwd, 12);
+      data.userPass = await hash(data.userPass, 12);
       let user = {
         emailAdd: data.emailAdd,
-        pwd: data.pwd,
+        userPass: data.userPass,
       };
 
       const strQry = `
         INSERT INTO Users
-        SET ?
+        SET ?;
         `;
 
       db.query(strQry, [data], (err) => {
@@ -83,8 +83,8 @@ class Users {
   async updateUser(req, res) {
     try {
       let data = req.body;
-      if (data.pwd) {
-        data.pwd = await hash(data.pwd, 12);
+      if (data.userPass) {
+        data.userPass = await hash(data.userPass, 12);
       }
       const strQry = `
               UPDATE Users
@@ -123,12 +123,11 @@ class Users {
   }
   async login(req, res) {
     try {
-      const { emailAdd, pwd } = req.body;
+      const { emailAdd, userPass } = req.body;
       const strQry = `
-              SELECT userID, firstName, lastName, age, emailAdd, pwd, userRole, profileURL
+              SELECT *
               FROM Users
-              WHERE emailAdd = '${emailAdd}'
-              ;
+              WHERE emailAdd = '${emailAdd}';
             `;
       db.query(strQry, async (err, result) => {
         if (err) throw new Error(`To login, please review your query.`);
@@ -138,9 +137,9 @@ class Users {
             message: "You provided the wrong email.",
           });
         } else {
-          const isValidPass = await compare(pwd, result[0].pwd);
+          const isValidPass = await compare(userPass, result[0].userPass);
           if (isValidPass) {
-            const token = createToken({ emailAdd, pwd });
+            const token = createToken({ emailAdd, userPass });
             res.json({
               status: res.statusCode,
               token,
