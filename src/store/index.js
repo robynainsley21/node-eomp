@@ -193,7 +193,8 @@ export default createStore({
     async fetchProducts({commit}) {
       try {
         let { data, msg } =  await axios.get(`${apiURL}products`) 
-
+            console.log(data);
+            
             if (data.results) {
               commit("setProducts", data.results);
             } else {
@@ -209,10 +210,13 @@ export default createStore({
           }
     },
     async fetchProduct({commit}, id) {
+
       try {
-        let { data, msg } = await axios.get(`${apiURL}product/${id}`)
-            if (data.result) 
+        let { data, msg } = await axios.get(`${apiURL}products/${id}`)
+            if (data.result) {
               commit("setProduct", data.result);
+            console.log(data);
+            }
             else {
               toast.error(`${msg}`, {
                 autoClose: 3000,
@@ -226,7 +230,7 @@ export default createStore({
             });
           }
       },
-      // async addAProduct(context, payload) {
+      // async addProduct(context, payload) {
     //   try {
     //     const { msg } = await (
     //       await axios.post(`${apiURL}product/add`, payload)
