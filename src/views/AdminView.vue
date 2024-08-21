@@ -19,8 +19,8 @@
                         <td>{{ product.prodName }}</td>
                         <td>{{ product.category }}</td>
                         <td>{{ product.quantity }}</td>
-                        <td>: R{{ product.amount }}</td>
-                        <td><i class="bi bi-arrow-right-circle-fill"></i></td>
+                        <td>R{{ product.amount }}</td>
+                        <td><button><i class="bi bi-arrow-right-circle-fill"></i></button></td>
                     </tr>
                 </tbody>
         </table>
