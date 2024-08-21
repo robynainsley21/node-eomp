@@ -93,7 +93,7 @@ class Users {
             `;
 
       db.query(strQry, [data], (err) => {
-        if (err) throw new Error(`Unable to update user.`);
+        if (err) throw new Error(err.message);
         res.json({
           status: res.statusCode,
           message: "User updated successfully",
