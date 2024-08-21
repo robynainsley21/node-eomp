@@ -14,7 +14,7 @@
                     <p class="lead"><span class="text-success fw-bold">Amount</span>: R{{ product.amount }}</p>
                     <div class="button-wrapper d-md-flex d-block justify-content-between">
                     </div>
-                    <router-link :to="{name: 'productDetail',params:{id:product.prodID}}">See More</router-link>
+                    <router-link :to="{name: 'productDetail',params:{id:product.prodID}}"><i class="bi bi-arrow-right-circle-fill"></i></router-link>
                 </template>
             </Card>
         </div>
