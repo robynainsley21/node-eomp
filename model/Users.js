@@ -144,6 +144,7 @@ class Users {
               status: res.statusCode,
               token,
               result: result[0],
+              message: `You have successfully logged in.`,
             });
           } else {
             res.json({
