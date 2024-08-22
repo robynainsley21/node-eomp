@@ -24,12 +24,21 @@ export default {
   font-style: normal;
 }
 
+img{
+  background-color: transparent;
+}
+
+.prodImg{
+  height: 100px;
+}
+
 * {
   font-family: '911porschav3', sans-serif;
   line-height: 1.5;
   font-size: 16px;   /* Adjusts the font size */
   letter-spacing: 0.05em; /* Adjusts the spacing between letters */
 }
+
 html{
   background-color: #2E2E30;
 }

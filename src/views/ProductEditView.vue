@@ -16,6 +16,9 @@
             <input v-model="product.prodURL" type="url" class="form-control text-center" id="editProductImage" required>
           </div>
           <div class="mb-3">
+            <img class="prodImg" :src=product.prodURL alt="">
+          </div>
+          <div class="mb-3">
             <label for="editProductQuantity" class="form-label">Quantity</label>
             <input v-model="product.quantity" type="number" step="0.01" class="form-control text-center" id="editProductQuantity" required>
           </div>
