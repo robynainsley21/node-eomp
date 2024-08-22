@@ -23,6 +23,9 @@
         <li class="nav-item">
             <router-link to="/contact" class="nav-link" >Contact</router-link>
         </li>
+        <!-- <li class="nav-item">
+            <router-link to="/productDetail" class="nav-link" >Product Detail</router-link>
+        </li> -->
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

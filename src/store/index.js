@@ -4,7 +4,7 @@ import axios from "axios";
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
 // import { applyToken } from "@/service/AuthenticateUser.js";
-import { useCookies } from "vue3-cookies";
+import { useCookies } from "vue3-cookies"; 
 
 const { cookies } = useCookies();
 const apiURL = "https://node-eomp-pav1.onrender.com/";
@@ -37,24 +37,26 @@ export default createStore({
     },
   },
   actions: {
-    // async fetchUsers(context) {
-    //   try {
-    //     const { results, msg } = await (await axios.get(`${apiURL}user`)).data;
-    //     if (results) {
-    //       context.commit("setUsers", results);
-    //     } else {
-    //       toast.error(`${msg}`, {
-    //         autoClose: 2000,
-    //         position: toast.POSITION.BOTTOM_CENTER,
-    //       });
-    //     }
-    //   } catch (e) {
-    //     toast.error(`${e.message}`, {
-    //       autoClose: 2000,
-    //       position: toast.POSITION.BOTTOM_CENTER,
-    //     });
-    //   }
-    // },
+    async fetchUsers({commit}) {
+      try {
+        let { data, msg } = await axios.get(`${apiURL}users`);
+        if (data.result) {
+          commit("setUsers", data.result);
+          console.log(data);
+          
+        } else {
+          toast.error(`${msg}`, {
+            autoClose: 2000,
+            position: toast.POSITION.BOTTOM_CENTER,
+          });
+        }
+      } catch (e) {
+        toast.error(`${e.message}`, {
+          autoClose: 2000,
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
+      }
+    },
     // async fetchUser(context, id) {
     //   try {
     //     const { result, msg } = await (
@@ -193,7 +195,7 @@ export default createStore({
     async fetchProducts({commit}) {
       try {
         let { data, msg } =  await axios.get(`${apiURL}products`) 
-
+            
             if (data.results) {
               commit("setProducts", data.results);
             } else {
@@ -209,10 +211,13 @@ export default createStore({
           }
     },
     async fetchProduct({commit}, id) {
+
       try {
-        let { data, msg } = await axios.get(`${apiURL}product/${id}`)
-            if (data.result) 
+        let { data, msg } = await axios.get(`${apiURL}products/${id}`)
+            if (data.result) {
               commit("setProduct", data.result);
+            console.log(data);
+            }
             else {
               toast.error(`${msg}`, {
                 autoClose: 3000,
@@ -226,44 +231,44 @@ export default createStore({
             });
           }
       },
-      // async addAProduct(context, payload) {
-    //   try {
-    //     const { msg } = await (
-    //       await axios.post(`${apiURL}product/add`, payload)
-    //     ).data;
-    //     if (msg) {
-    //       context.dispatch("fetchProducts");
-    //       toast.success(`${msg}`, {
-    //         autoClose: 2000,
-    //         position: toast.POSITION.BOTTOM_CENTER,
-    //       });
-    //     }
-    //   } catch (e) {
-    //     toast.error(`${e.message}`, {
-    //       autoClose: 2000,
-    //       position: toast.POSITION.BOTTOM_CENTER,
-    //     });
-    //   }
-    // },
-    // async updateProduct(context, payload) {
-    //   try {
-    //     const { msg } = await (
-    //       await axios.patch(`${apiURL}product/${payload.productID}`, payload)
-    //     ).data;
-    //     if (msg) {
-    //       context.dispatch("fetchProducts");
-    //       toast.success(`${msg}`, {
-    //         autoClose: 2000,
-    //         position: toast.POSITION.BOTTOM_CENTER,
-    //       });
-    //     }
-    //   } catch (e) {
-    //     toast.error(`${e.message}`, {
-    //       autoClose: 2000,
-    //       position: toast.POSITION.BOTTOM_CENTER,
-    //     });
-    //   }
-    // },
+      async addProduct(context, payload) {
+      try {
+        const { msg } = await (
+          await axios.post(`${apiURL}product/add`, payload)
+        ).data;
+        if (msg) {
+          context.dispatch("fetchProducts");
+          toast.success(`${msg}`, {
+            autoClose: 2000,
+            position: toast.POSITION.BOTTOM_CENTER,
+          });
+        }
+      } catch (e) {
+        toast.error(`${e.message}`, {
+          autoClose: 2000,
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
+      }
+    },
+    async updateProduct(context, payload) {
+      try {
+        const { msg } = await (
+          await axios.patch(`${apiURL}product/${payload.productID}`, payload)
+        ).data;
+        if (msg) {
+          context.dispatch("fetchProducts");
+          toast.success(`${msg}`, {
+            autoClose: 2000,
+            position: toast.POSITION.BOTTOM_CENTER,
+          });
+        }
+      } catch (e) {
+        toast.error(`${e.message}`, {
+          autoClose: 2000,
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
+      }
+    },
     // async deleteProduct(context, id) {
     //   try {
     //     const { msg } = await (

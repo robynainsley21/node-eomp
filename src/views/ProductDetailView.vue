@@ -1,58 +1,66 @@
 <template>
     <div class="container">
-
-        <h1 class="mb-2 text-start">Products</h1>
-
-        <div class="row gap-2 justify-content-center my-2" v-if="products">
-            <Card v-for="product in products()" :key="product.prodID">
+        <h1>This is an single product page</h1> 
+        <div>
+            <div class="row justify-content-center" v-if="product" >
+            <Card>
                 <template #cardHeader>
+                    {{ product.productURL }}
                     <img :src="product.prodURL" loading="lazy" class="img-fluid" :alt="product.prodName">
                 </template>
                 <template #cardBody>
                     <h5 class="card-title fw-bold">{{ product.prodName }}</h5>
                     <h5 class="card-title fw-bold">{{ product.category }}</h5>
                     <p class="lead"><span class="text-success fw-bold">Amount</span>: R{{ product.amount }}</p>
-                    <div class="button-wrapper d-md-flex d-block justify-content-between">
-                    </div>
-                    <router-link :to="{name: 'productDetail',params:{id:product.prodID}}"><i class="bi bi-arrow-right-circle-fill"></i></router-link>
                 </template>
             </Card>
         </div>
-        <div v-else>
-            <Spinner />
+        <div v-else> 
+            <Spinner/>
+        </div>
         </div>
 
-    </div>  
+
+
+    </div>
 </template>
 
 <script>
 import Spinner from '@/components/SpinnerComp.vue'
+
 import Card from '@/components/CardComp.vue'
 
 export default {
     methods:{
-        getProducts(){
+        fetchProducts(){
             this.$store.dispatch('fetchProducts')
         },
         products() {
           return this.$store.state.products;
         },
+        fetchProduct(){
+            this.$store.dispatch('fetchProduct', this.$route.params.id )
+        },
+        // this.$route.params.id
+        
+        
+    },
+    computed:{
+        product(){
+            return this.$store.state.product;
+        }
     },
 components: {
     Spinner,
     Card
   },
   mounted() {
-    this.getProducts();
+    // this.fetchProducts(),
+    this.fetchProduct()
   }
 }
 </script>
 
 <style>
-.table-products{
-    --bs-table-bg: transparent !important;
-}
-td{
-    color: white;
-}
+
 </style>
