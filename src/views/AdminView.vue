@@ -24,7 +24,7 @@
                         <td>{{ product.category }}</td>
                         <td>{{ product.quantity }}</td>
                         <td>R{{ product.amount }}</td>
-                        <td><button><i class="bi bi-pencil-square"></i></button></td>
+                        <td><router-link :to="{name: 'productEdit',params:{id:product.prodID}}"><button><i class="bi bi-pencil-square"></i></button></router-link></td>
                         <td><button><i class="bi bi-trash-fill"></i></button></td>
                     </tr>
                 </tbody>
@@ -63,7 +63,7 @@
                         <td>{{ user.emailAdd }}</td>
                         <td>{{ user.userPass }}</td>
                         <td>{{ user.userProfile }}</td>
-                        <td><button><i class="bi bi-pencil-square"></i></button></td>
+                        <td><router-link :to="{name: 'userEdit',params:{id:user.userID}}"><button><i class="bi bi-pencil-square"></i></button></router-link></td>
                         <td><button><i class="bi bi-trash-fill"></i></button></td>
                     </tr>
                 </tbody>
