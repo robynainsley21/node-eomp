@@ -122,26 +122,26 @@ export default createStore({
         });
       }
     },
-    // async deleteUser(context, id) {
-    //   try {
-    //     const { msg, err } = await (
-    //       await axios.delete(`${apiURL}user/${id}`)
-    //     ).data;
-    //     if (msg) {
-    //       context.dispatch("fetchUsers");
-    //     } else {
-    //       toast.error(`${err}`, {
-    //         autoClose: 2000,
-    //         position: toast.POSITION.BOTTOM_CENTER,
-    //       });
-    //     }
-    //   } catch (e) {
-    //     toast.error(`${e.message}`, {
-    //       autoClose: 2000,
-    //       position: toast.POSITION.BOTTOM_CENTER,
-    //     });
-    //   }
-    // },
+    async deleteUser(context, id) {
+      try {
+        const { msg, err } = await (
+          await axios.delete(`${apiURL}users/delete/${id}`)
+        ).data;
+        if (msg) {
+          context.dispatch("fetchUsers");
+        } else {
+          toast.error(`${err}`, {
+            autoClose: 2000,
+            position: toast.POSITION.BOTTOM_CENTER,
+          });
+        }
+      } catch (e) {
+        toast.error(`${e.message}`, {
+          autoClose: 2000,
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
+      }
+    },
     // async login(context, payload) {
     //   try {
     //     const { msg, result, token } = await (
@@ -271,25 +271,25 @@ export default createStore({
         });
       }
     },
-    // async deleteProduct(context, id) {
-    //   try {
-    //     const { msg } = await (
-    //       await axios.delete(`${apiURL}product/${id}`)
-    //     ).data;
-    //     if (msg) {
-    //       context.dispatch("fetchProducts");
-    //       toast.success(`${msg}`, {
-    //         autoClose: 2000,
-    //         position: toast.POSITION.BOTTOM_CENTER,
-    //       });
-    //     }
-    //   } catch (e) {
-    //     toast.error(`${e.message}`, {
-    //       autoClose: 2000,
-    //       position: toast.POSITION.BOTTOM_CENTER,
-    //     });
-    //   }
-    // },
+    async deleteProduct(context, id) {
+      try {
+        const { msg } = await (
+          await axios.delete(`${apiURL}products/update/${id}`)
+        ).data;
+        if (msg) {
+          context.dispatch("fetchProducts");
+          toast.success(`${msg}`, {
+            autoClose: 2000,
+            position: toast.POSITION.BOTTOM_CENTER,
+          });
+        }
+      } catch (e) {
+        toast.error(`${e.message}`, {
+          autoClose: 2000,
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
+      }
+    },
   },
   modules: {},
 });
