@@ -28,10 +28,6 @@ img{
   background-color: transparent;
 }
 
-.prodImg{
-  height: 100px;
-}
-
 * {
   font-family: '911porschav3', sans-serif;
   line-height: 1.5;

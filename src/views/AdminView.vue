@@ -137,10 +137,20 @@ mounted() {
 
 <style>
 .table-products {
---bs-table-bg: transparent !important;
+    --bs-table-bg: transparent !important; /* Ensure the table background is transparent */
 }
 
-td {
-color: white;
+.table-products th,
+.table-products td {
+    color: white; /* Make text white for both header and data cells */
 }
+
+.table-products thead {
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Set a semi-transparent background for table headers for better readability */
+}
+
+.table-products tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.1); /* Optional: Set alternating row colors for better readability */
+}
+
 </style>
