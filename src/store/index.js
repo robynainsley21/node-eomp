@@ -230,8 +230,8 @@ export default createStore({
               position: toast.POSITION.BOTTOM_CENTER,
             });
           }
-      },
-      async addProduct(context, payload) {
+    },
+    async addProduct(context, payload) {
       try {
         const { msg } = await (
           await axios.post(`${apiURL}products/addProduct`, payload)
