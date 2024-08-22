@@ -57,13 +57,11 @@ export default createStore({
         });
       }
     },
-    async fetchUser(context, id) {
+    async fetchUser({commit}, id) {
       try {
-        const { result, msg } = await (
-          await axios.get(`${apiURL}user/${id}`)
-        ).data;
-        if (result) {
-          context.commit("setUser", result);
+        const { data , msg } = await axios.get(`${apiURL}users/${id}`);
+        if (data.result) {
+          commit("setUser", data.result);
         } else {
           toast.error(`${msg}`, {
             autoClose: 2000,
@@ -78,9 +76,11 @@ export default createStore({
       }
     },
     async updateUser(context, payload) {
+      console.log(payload);
+      
       try {
         const { msg, err } = await (
-          await axios.patch(`${apiURL}/users/update/${payload.userID}`, payload)
+          await axios.patch(`${apiURL}users/update/${payload.userID}`, payload)
         ).data;
         if (msg) {
           context.dispatch("fetchUsers");
@@ -234,7 +234,7 @@ export default createStore({
       async addProduct(context, payload) {
       try {
         const { msg } = await (
-          await axios.post(`${apiURL}product/add`, payload)
+          await axios.post(`${apiURL}products/addProduct`, payload)
         ).data;
         if (msg) {
           context.dispatch("fetchProducts");
