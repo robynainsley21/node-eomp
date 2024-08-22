@@ -56,5 +56,4 @@ export default {
 </script>
 
 <style>
-/* You can add your styles here */
 </style>

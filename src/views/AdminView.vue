@@ -74,6 +74,8 @@
         <div v-else>
             <Spinner />
         </div>
+
+        <td><router-link :to="{name: 'userAdd'}"><button><i class="bi bi-plus-square-fill"></i></button></router-link></td>
   </div>
   
 </template>
