@@ -6,7 +6,7 @@
         <div class="row gap-2 justify-content-center my-2" v-if="products">
             <Card v-for="product in products()" :key="product.prodID">
                 <template #cardHeader>
-                    <img :src="product.prodURL" loading="lazy" class="img-fluid" :alt="product.prodName">
+                    <img :src="product.prodURL" loading="lazy" class="img-fluid prodImg" :alt="product.prodName">
                 </template>
                 <template #cardBody>
                     <h5 class="card-title fw-bold">{{ product.prodName }}</h5>

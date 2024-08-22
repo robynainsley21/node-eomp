@@ -6,7 +6,7 @@
             <Card>
                 <template #cardHeader>
                     {{ product.productURL }}
-                    <img :src="product.prodURL" loading="lazy" class="img-fluid" :alt="product.prodName">
+                    <img :src="product.prodURL" loading="lazy" class="img-fluid prodImg h-25" :alt="product.prodName">
                 </template>
                 <template #cardBody>
                     <h5 class="card-title fw-bold">{{ product.prodName }}</h5>

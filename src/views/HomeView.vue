@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="col-8 m-auto">
-        <img class="vh-100 img-fluid" src="https://aneeqbass.github.io/node-eomp-images/apple_watch_6.jpeg" alt="apple_watch_6">
+        <img class="vh-100 img-fluid prodImg" src="https://aneeqbass.github.io/node-eomp-images/apple_watch_6.png" alt="apple_watch_6">
       </div>
    </div>  
   </div>
