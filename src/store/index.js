@@ -1,6 +1,6 @@
 import { createStore } from "vuex";
 import axios from "axios";
-// import router from "@/router";
+import router from "@/router";
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
 // import { applyToken } from "@/service/AuthenticateUser.js";
@@ -97,31 +97,31 @@ export default createStore({
         });
       }
     },
-    // async register(context, payload) {
-    //   try {
-    //     const { msg, err, token } = await (
-    //       await axios.post(`${apiURL}user/register`, payload)
-    //     ).data;
-    //     if (token) {
-    //       context.dispatch("fetchUsers");
-    //       toast.success(`${msg}`, {
-    //         autoClose: 2000,
-    //         position: toast.POSITION.BOTTOM_CENTER,
-    //       });
-    //       router.push({ name: "login" });
-    //     } else {
-    //       toast.error(`${err}`, {
-    //         autoClose: 2000,
-    //         position: toast.POSITION.BOTTOM_CENTER,
-    //       });
-    //     }
-    //   } catch (e) {
-    //     toast.error(`${e.message}`, {
-    //       autoClose: 2000,
-    //       position: toast.POSITION.BOTTOM_CENTER,
-    //     });
-    //   }
-    // },
+    async register(context, payload) {
+      try {
+        const { msg, err, token } = await (
+          await axios.post(`${apiURL}users/register`, payload)
+        ).data;
+        if (token) {
+          context.dispatch("fetchUsers");
+          toast.success(`${msg}`, {
+            autoClose: 2000,
+            position: toast.POSITION.BOTTOM_CENTER,
+          });
+          router.push({ name: "login" });
+        } else {
+          toast.error(`${err}`, {
+            autoClose: 2000,
+            position: toast.POSITION.BOTTOM_CENTER,
+          });
+        }
+      } catch (e) {
+        toast.error(`${e.message}`, {
+          autoClose: 2000,
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
+      }
+    },
     // async deleteUser(context, id) {
     //   try {
     //     const { msg, err } = await (

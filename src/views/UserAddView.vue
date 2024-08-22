@@ -1,66 +1,69 @@
 <template>
     <div class="container">
-        <h1>This is an single product page</h1> 
-        <div>
-            <div class="row justify-content-center" v-if="product" >
-            <Card>
-                <template #cardHeader>
-                    {{ product.productURL }}
-                    <img :src="product.prodURL" loading="lazy" class="img-fluid" :alt="product.prodName">
-                </template>
-                <template #cardBody>
-                    <h5 class="card-title fw-bold">{{ product.prodName }}</h5>
-                    <h5 class="card-title fw-bold">{{ product.category }}</h5>
-                    <p class="lead"><span class="text-success fw-bold">Amount</span>: R{{ product.amount }}</p>
-                </template>
-            </Card>
-        </div>
-        <div v-else> 
-            <Spinner/>
-        </div>
-        </div>
+        <h1>This is an add user page</h1> 
 
-
-
+        <form id="addUserForm" @submit.prevent="register">
+          <div class="mb-3">
+            <label for="addUserFirstName" class="form-label">First Name</label>
+            <input v-model="user.firstName" type="text" class="form-control text-center" id="addUserFirstName" required>
+          </div>
+          <div class="mb-3">
+            <label for="addUserLastName" class="form-label">Last Name</label>
+            <input v-model="user.lastName" type="text" class="form-control text-center" id="addUserLastName" required>
+          </div>
+          <div class="mb-3">
+            <label for="addUserAge" class="form-label">Age</label>
+            <input v-model="user.userAge" type="number" class="form-control text-center" id="addUserAge" required>
+          </div>
+          <div class="mb-3">
+            <label for="addUserRole" class="form-label">Role</label>
+            <input v-model="user.userRole" type="text" class="form-control text-center" id="addUserRole" required>
+          </div>
+          <div class="mb-3">
+            <label for="addUserEmailAdd" class="form-label">Email Address</label>
+            <input v-model="user.emailAdd" type="email" class="form-control text-center" id="addUserEmailAdd" required>
+          </div>
+          <div class="mb-3">
+            <label for="addUserPass" class="form-label">User Password</label>
+            <input v-model="user.userPass" type="password" class="form-control text-center" id="addUserPass" required>
+          </div>
+          <div class="mb-3">
+            <label for="addUserProfile" class="form-label">Profile Pic</label>
+            <input v-model="user.userProfile" type="url" class="form-control text-center" id="addUserProfile" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Add User</button>
+      </form>
     </div>
 </template>
 
 <script>
-import Spinner from '@/components/SpinnerComp.vue'
-
-import Card from '@/components/CardComp.vue'
-
 export default {
+    data() {
+        return {
+            user: {
+                firstName: '',
+                lastName: '',
+                userAge: null,
+                userRole: '',
+                emailAdd: '',
+                userPass: '',
+                userProfile: ''
+            }
+        };
+    },
     methods:{
-        fetchProducts(){
-            this.$store.dispatch('fetchProducts')
+        register(){
+            this.$store.dispatch('register', this.user)
+            .then(() => {
+                this.$router.push('/admin');
+            })
+            .catch(err => {
+                console.error("Failed to add user:", err);
+            });
         },
-        products() {
-          return this.$store.state.products;
-        },
-        fetchProduct(){
-            this.$store.dispatch('fetchProduct', this.$route.params.id )
-        },
-        // this.$route.params.id
-        
-        
-    },
-    computed:{
-        product(){
-            return this.$store.state.product;
-        }
-    },
-components: {
-    Spinner,
-    Card
-  },
-  mounted() {
-    // this.fetchProducts(),
-    this.fetchProduct()
-  }
+    }
 }
 </script>
 
 <style>
-
 </style>
