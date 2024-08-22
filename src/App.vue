@@ -17,6 +17,19 @@ export default {
 };
 </script>
 <style>
+@font-face {
+  font-family: '911porschav3';
+  src: url('@/assets/fonts/911porschav3.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: '911porschav3', sans-serif;
+  line-height: 1.5;
+  font-size: 16px;   /* Adjusts the font size */
+  letter-spacing: 0.05em; /* Adjusts the spacing between letters */
+}
 html{
   background-color: #2E2E30;
 }
