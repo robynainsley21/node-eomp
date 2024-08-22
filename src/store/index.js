@@ -57,46 +57,46 @@ export default createStore({
         });
       }
     },
-    // async fetchUser(context, id) {
-    //   try {
-    //     const { result, msg } = await (
-    //       await axios.get(`${apiURL}user/${id}`)
-    //     ).data;
-    //     if (result) {
-    //       context.commit("setUser", result);
-    //     } else {
-    //       toast.error(`${msg}`, {
-    //         autoClose: 2000,
-    //         position: toast.POSITION.BOTTOM_CENTER,
-    //       });
-    //     }
-    //   } catch (e) {
-    //     toast.error(`${e.message}`, {
-    //       autoClose: 2000,
-    //       position: toast.POSITION.BOTTOM_CENTER,
-    //     });
-    //   }
-    // },
-    // async updateUser(context, payload) {
-    //   try {
-    //     const { msg, err } = await (
-    //       await axios.patch(`${apiURL}user/${payload.userID}`, payload)
-    //     ).data;
-    //     if (msg) {
-    //       context.dispatch("fetchUsers");
-    //     } else {
-    //       toast.error(`${err}`, {
-    //         autoClose: 2000,
-    //         position: toast.POSITION.BOTTOM_CENTER,
-    //       });
-    //     }
-    //   } catch (e) {
-    //     toast.error(`${e.message}`, {
-    //       autoClose: 2000,
-    //       position: toast.POSITION.BOTTOM_CENTER,
-    //     });
-    //   }
-    // },
+    async fetchUser(context, id) {
+      try {
+        const { result, msg } = await (
+          await axios.get(`${apiURL}user/${id}`)
+        ).data;
+        if (result) {
+          context.commit("setUser", result);
+        } else {
+          toast.error(`${msg}`, {
+            autoClose: 2000,
+            position: toast.POSITION.BOTTOM_CENTER,
+          });
+        }
+      } catch (e) {
+        toast.error(`${e.message}`, {
+          autoClose: 2000,
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
+      }
+    },
+    async updateUser(context, payload) {
+      try {
+        const { msg, err } = await (
+          await axios.patch(`${apiURL}/users/update/${payload.userID}`, payload)
+        ).data;
+        if (msg) {
+          context.dispatch("fetchUsers");
+        } else {
+          toast.error(`${err}`, {
+            autoClose: 2000,
+            position: toast.POSITION.BOTTOM_CENTER,
+          });
+        }
+      } catch (e) {
+        toast.error(`${e.message}`, {
+          autoClose: 2000,
+          position: toast.POSITION.BOTTOM_CENTER,
+        });
+      }
+    },
     // async register(context, payload) {
     //   try {
     //     const { msg, err, token } = await (
@@ -251,9 +251,11 @@ export default createStore({
       }
     },
     async updateProduct(context, payload) {
+      console.log(payload);
+      
       try {
         const { msg } = await (
-          await axios.patch(`${apiURL}product/${payload.productID}`, payload)
+          await axios.patch(`${apiURL}products/update/${payload.prodID}`, payload)
         ).data;
         if (msg) {
           context.dispatch("fetchProducts");
