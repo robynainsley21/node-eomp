@@ -6,10 +6,10 @@
         <h6>Wear the Future, Own Your Potential.</h6>
         <div class="row gx-5">
           <div class="col">
-            <button type="button" class="btn btn-primary btn-lg w-100">About</button>
+            <router-link to="/about"><button type="button" class="btn btn-primary btn-lg w-100">About</button></router-link>
           </div>
           <div class="col">
-            <button type="button" class="btn btn-primary btn-lg w-100">Products</button>
+            <router-link to="/products"><button type="button" class="btn btn-primary btn-lg w-100">Products</button></router-link>
           </div>
         </div>
       </div>
