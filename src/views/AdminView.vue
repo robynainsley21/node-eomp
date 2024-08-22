@@ -34,6 +34,8 @@
             <Spinner />
         </div>
 
+        <td><router-link :to="{name: 'productAdd'}"><button><i class="bi bi-plus-square-fill"></i></button></router-link></td>
+
         <h5>Users</h5>
         <div class="row gap-2 justify-content-center my-2" v-if="users">
           <table class="table table-products" >

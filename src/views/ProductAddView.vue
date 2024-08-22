@@ -1,66 +1,60 @@
 <template>
     <div class="container">
-        <h1>This is an single product page</h1> 
-        <div>
-            <div class="row justify-content-center" v-if="product" >
-            <Card>
-                <template #cardHeader>
-                    {{ product.productURL }}
-                    <img :src="product.prodURL" loading="lazy" class="img-fluid" :alt="product.prodName">
-                </template>
-                <template #cardBody>
-                    <h5 class="card-title fw-bold">{{ product.prodName }}</h5>
-                    <h5 class="card-title fw-bold">{{ product.category }}</h5>
-                    <p class="lead"><span class="text-success fw-bold">Amount</span>: R{{ product.amount }}</p>
-                </template>
-            </Card>
-        </div>
-        <div v-else> 
-            <Spinner/>
-        </div>
-        </div>
+        <h1>This is an add product page</h1> 
 
-
-
+        <form id="addProductForm" @submit.prevent="addProduct">
+          <div class="mb-3">
+            <label for="addProductName" class="form-label">Product Name</label>
+            <input v-model="product.prodName" type="text" class="form-control text-center" id="addProductName" required>
+          </div>
+          <div class="mb-3">
+            <label for="addProductCategory" class="form-label">Category</label>
+            <input v-model="product.category" type="text" class="form-control text-center" id="addProductCategory" required>
+          </div>
+          <div class="mb-3">
+            <label for="addProductImage" class="form-label">Image URL</label>
+            <input v-model="product.prodURL" type="url" class="form-control text-center" id="addProductImage" required>
+          </div>
+          <div class="mb-3">
+            <label for="addProductQuantity" class="form-label">Quantity</label>
+            <input v-model="product.quantity" type="number" step="0.01" class="form-control text-center" id="addProductQuantity" required>
+          </div>
+          <div class="mb-3">
+            <label for="addProductPrice" class="form-label">Price</label>
+            <input v-model="product.amount" type="number" step="0.01" class="form-control text-center" id="addProductPrice" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Add Product</button>
+      </form>
     </div>
 </template>
 
 <script>
-import Spinner from '@/components/SpinnerComp.vue'
-
-import Card from '@/components/CardComp.vue'
-
 export default {
+    data(){
+        return {
+            product: {
+                prodName: '',
+                category: '',
+                prodURL: '',
+                quantity: 0,
+                amount: 0
+            }
+        };
+    },
     methods:{
-        fetchProducts(){
-            this.$store.dispatch('fetchProducts')
+        addProduct(){
+            this.$store.dispatch('addProduct', this.product)
+            .then(() => {
+                this.$router.push('/admin');
+            })
+            .catch(err => {
+                console.error("Failed to add product:", err);
+            });
         },
-        products() {
-          return this.$store.state.products;
-        },
-        fetchProduct(){
-            this.$store.dispatch('fetchProduct', this.$route.params.id )
-        },
-        // this.$route.params.id
-        
-        
     },
-    computed:{
-        product(){
-            return this.$store.state.product;
-        }
-    },
-components: {
-    Spinner,
-    Card
-  },
-  mounted() {
-    // this.fetchProducts(),
-    this.fetchProduct()
-  }
 }
 </script>
 
 <style>
-
+/* You can add your styles here */
 </style>
