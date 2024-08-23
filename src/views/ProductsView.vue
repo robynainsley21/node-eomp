@@ -1,19 +1,17 @@
 <template>
-    <div class="container">
-
-        <h1 class="mb-2 text-start">Products</h1>
-
-        <div class="row gap-2 justify-content-center my-2" v-if="products">
+    <div class="container pb-3">
+        <div class="products">
+            <h1 class="mb-2 text-start">/Products</h1>
+        <div class="row justify-content-center" v-if="products">
             <Card v-for="product in products()" :key="product.prodID">
                 <template #cardHeader>
-                    <img :src="product.prodURL" loading="lazy" class="img-fluid prodImg" :alt="product.prodName">
+                    <img :src="product.prodURL" loading="lazy" class="small-img img-fluid rounded mx-auto d-block card-img-top" :alt="product.prodName">
                 </template>
                 <template #cardBody>
-                    <h5 class="card-title fw-bold">{{ product.prodName }}</h5>
-                    <h5 class="card-title fw-bold">{{ product.category }}</h5>
-                    <p class="lead"><span class="text-success fw-bold">Amount</span>: R{{ product.amount }}</p>
-                    <div class="button-wrapper d-md-flex d-block justify-content-between">
-                    </div>
+                    <h5 class="card-title">{{ product.prodName }}</h5>
+                    <h5 class="card-title">{{ product.category }}</h5>
+                    <p class="lead"><span class="text-success">Quantity</span>: {{ product.quantity }}</p>
+                    <p class="lead"><span class="text-success">Amount</span>: R{{ product.amount }}</p>
                     <router-link :to="{name: 'productDetail',params:{id:product.prodID}}"><i class="bi bi-arrow-right-circle-fill"></i></router-link>
                 </template>
             </Card>
@@ -21,7 +19,7 @@
         <div v-else>
             <Spinner />
         </div>
-
+        </div>
     </div>  
 </template>
 
@@ -48,11 +46,14 @@ components: {
 }
 </script>
 
-<style>
-.table-products{
-    --bs-table-bg: transparent !important;
+<style scoped>
+*{
+    line-height: 1.5;
+    font-size: 16px;   
+    letter-spacing: 0.05em;
 }
-td{
-    color: white;
+.products{
+    margin-top: 120px;
+    width: 100%;
 }
 </style>

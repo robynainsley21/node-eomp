@@ -4,9 +4,9 @@ import router from "@/router";
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
 // import { applyToken } from "@/service/AuthenticateUser.js";
-import { useCookies } from "vue3-cookies"; 
+// import { useCookies } from "vue3-cookies"; 
 
-const { cookies } = useCookies();
+// const { cookies } = useCookies();
 const apiURL = "https://node-eomp-pav1.onrender.com/";
 
 export default createStore({
@@ -18,7 +18,6 @@ export default createStore({
     recentProducts: null,
   },
   getters: {},
-  /**updating the state */
   mutations: {
     setUsers(state, payload) {
       state.users = payload;
@@ -31,10 +30,7 @@ export default createStore({
     },
     setProduct(state, payload) {
       state.product = payload;
-    },
-    setRecentProducts(state, payload) {
-      state.recentProducts = payload;
-    },
+    }
   },
   actions: {
     async fetchUsers({commit}) {
@@ -173,25 +169,6 @@ export default createStore({
     //     });
     //   }
     // },
-    async recentProducts({commit}) {
-      try {
-        let { data, message } = await axios.get(`${apiURL}products/recent`)
-        
-        if (data.results) {
-          commit("setRecentProducts", data.results);
-          cookies.set("recentProducts", data.results);
-        } else {
-          toast.error(`${message}`, {
-            autoClose: 3000,
-          });
-        }
-      } catch (error) {
-        toast.error(`${error.message}`, {
-          autoClose: 3000,
-          position: toast.POSITION.BOTTOM_CENTER,
-        });
-      }
-    },
     async fetchProducts({commit}) {
       try {
         let { data, msg } =  await axios.get(`${apiURL}products`) 

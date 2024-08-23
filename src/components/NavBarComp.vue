@@ -2,7 +2,7 @@
   <div>
   <nav class="navbar navbar-expand-lg bg-transparent position-fixed w-100 sticky-top">
     <div class="container-fluid m-auto">
-      <a class="navbar-brand">Navbar</a>
+      <i><img src="https://aneeqbass.github.io/node-eomp-images/techfitLogoBgTransparent.png" class="logo" loading="lazy" alt=""></i>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -23,14 +23,7 @@
           <li class="nav-item">
               <router-link to="/contact" class="nav-link" >Contact</router-link>
           </li>
-          <!-- <li class="nav-item">
-              <router-link to="/productDetail" class="nav-link" >Product Detail</router-link>
-          </li> -->
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
       </div>
     </div>
   </nav>
@@ -43,18 +36,24 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .navbar {
-  background-color: transparent !important; /* Makes the background transparent */
-  backdrop-filter: blur(10px); /* Optional: Adds a blur effect to the background */
+  background-color: transparent !important; 
+  backdrop-filter: blur(10px); 
 }
 
 .navbar .nav-link {
-  color: white; /* Adjust text color to ensure readability */
+  color: white; 
 }
 
+.logo{
+  width: auto;
+  height: 100px;
+  padding-left: 10px;
+  padding-top: 10px;
+}
 .navbar-toggler-icon {
-  background-color: white; /* Optional: Change the color of the navbar toggler icon */
+  background-color: white; 
 }
 </style>
   

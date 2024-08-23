@@ -1,34 +1,28 @@
 <template>
     <div class="container">
-        <h1>This is an single product page</h1> 
-        <div>
-            <div class="row justify-content-center" v-if="product" >
-            <Card>
-                <template #cardHeader>
-                    {{ product.productURL }}
-                    <img :src="product.prodURL" loading="lazy" class="img-fluid prodImg h-25" :alt="product.prodName">
-                </template>
-                <template #cardBody>
-                    <h5 class="card-title fw-bold">{{ product.prodName }}</h5>
-                    <h5 class="card-title fw-bold">{{ product.category }}</h5>
-                    <p class="lead"><span class="text-success fw-bold">Amount</span>: R{{ product.amount }}</p>
-                </template>
-            </Card>
+        <div class="singleProduct">
+        <div class="row justify-content-center" v-if="product" >
+            <div>
+                {{ product.productURL }}
+                <img :src="product.prodURL" loading="lazy" class="img-fluid prodImg" :alt="product.prodName">
+            </div>
+            <div>
+                <h5 class="card-title">{{ product.prodName }}</h5>
+                <h5 class="card-title">{{ product.category }}</h5>
+                <p class="">{{ product.description }}</p>
+                <p class="lead"><span class="text-success">Quantity</span>: {{ product.quantity }}</p>
+                <p class="lead"><span class="text-success">Amount</span>: R{{ product.amount }}</p>
+            </div>
         </div>
         <div v-else> 
             <Spinner/>
         </div>
         </div>
-
-
-
     </div>
 </template>
 
 <script>
 import Spinner from '@/components/SpinnerComp.vue'
-
-import Card from '@/components/CardComp.vue'
 
 export default {
     methods:{
@@ -52,7 +46,6 @@ export default {
     },
 components: {
     Spinner,
-    Card
   },
   mounted() {
     // this.fetchProducts(),
@@ -61,6 +54,11 @@ components: {
 }
 </script>
 
-<style>
-
+<style scoped>
+img{
+    width: 25rem;
+}
+/* .singleProduct{
+    margin-top: 65px;
+} */
 </style>

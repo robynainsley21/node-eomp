@@ -1,5 +1,6 @@
 <template>
-  <div class="card">
+ <div class="col-md-4 mb-3">
+    <div class="card">
     <div class="card-header">
       <slot name="cardHeader"></slot>
     </div>
@@ -7,6 +8,7 @@
       <slot name="cardBody"></slot>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -15,6 +17,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>
