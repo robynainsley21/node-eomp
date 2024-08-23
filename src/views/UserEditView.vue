@@ -40,7 +40,9 @@
         <input v-model="user.userProfile" type="url" step="0.01" class="form-control text-center" id="editUserProfile"
           required>
       </div>
-      <button type="submit" class="btn btn-primary">Save changes</button>
+      <div class="pb-3">
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
     </form>
     <div v-else>
       <Spinner />

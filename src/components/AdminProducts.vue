@@ -62,7 +62,7 @@ export default {
   },
   computed: {
     products() {
-      return this.$store.state.products || [];  // Ensure products is an array
+      return this.$store.state.products || [];  
     },
     filteredProducts() {
       return this.products.filter(product =>
@@ -119,7 +119,6 @@ export default {
   .table-products th,
   .table-products td {
     font-size: 0.8rem;
-    /* Smaller font size for mobile */
   }
 }
 

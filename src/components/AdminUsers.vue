@@ -64,7 +64,7 @@ export default {
   },
   computed: {
     users() {
-      return this.$store.state.users || [];  // Ensure users is an array
+      return this.$store.state.users || [];  
     },
     filteredUsers() {
       return this.users.filter(user =>

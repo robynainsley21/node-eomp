@@ -35,7 +35,6 @@ export default {
         fetchProduct(){
             this.$store.dispatch('fetchProduct', this.$route.params.id )
         },
-        // this.$route.params.id
         
         
     },
@@ -48,7 +47,6 @@ components: {
     Spinner,
   },
   mounted() {
-    // this.fetchProducts(),
     this.fetchProduct()
   }
 }
@@ -58,7 +56,4 @@ components: {
 img{
     width: 20rem;
 }
-/* .singleProduct{
-    margin-top: 65px;
-} */
 </style>
