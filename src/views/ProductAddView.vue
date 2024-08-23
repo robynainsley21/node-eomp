@@ -1,7 +1,5 @@
 <template>
     <div class="container">
-        <h1>This is an add product page</h1> 
-
         <form id="addProductForm" @submit.prevent="addProduct">
           <div class="mb-3">
             <label for="addProductName" class="form-label">Product Name</label>
@@ -55,5 +53,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
 </style>

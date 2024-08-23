@@ -1,7 +1,5 @@
 <template>
     <div class="container">
-        <h1>This is an add user page</h1> 
-
         <form id="addUserForm" @submit.prevent="register">
           <div class="mb-3">
             <label for="addUserFirstName" class="form-label">First Name</label>
@@ -14,6 +12,10 @@
           <div class="mb-3">
             <label for="addUserAge" class="form-label">Age</label>
             <input v-model="user.userAge" type="number" class="form-control text-center" id="addUserAge" required>
+          </div>
+          <div class="mb-3">
+            <label for="editUserGender" class="form-label">Gender</label>
+            <input v-model="user.gender" type="text" class="form-control text-center" id="editUserGender" required>
           </div>
           <div class="mb-3">
             <label for="addUserRole" class="form-label">Role</label>

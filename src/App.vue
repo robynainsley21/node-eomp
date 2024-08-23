@@ -1,5 +1,5 @@
-<template>
-  <div>
+<template class="w-100">
+  <div >
     <NavComp/>
     <router-view/>
     <FooterComp/>
@@ -8,12 +8,17 @@
 <script>
 import NavComp from "@/components/NavBarComp.vue";
 import FooterComp from "@/components/FooterComp.vue";
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 export default {
   components: {
     NavComp,
     FooterComp
   },
+  mounted() {
+    AOS.init();
+  }
 };
 </script>
 <style>
@@ -28,25 +33,19 @@ img{
   background-color: transparent;
 }
 
-* {
-  font-family: '911porschav3', sans-serif;
-  line-height: 1.5;
-  font-size: 16px;   /* Adjusts the font size */
-  letter-spacing: 0.05em; /* Adjusts the spacing between letters */
-}
-
 html{
   background-color: #2E2E30;
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #ffffff;
   background-color: #2E2E30;
-  margin-top: 65px;
+  width: 100%;
+  font-family: '911porschav3', sans-serif;
+  margin-top: 120px;
 }
 
 .with-blur-backdrop {
@@ -56,16 +55,33 @@ html{
   height: inherit;
 }
 
-nav {
-  padding: 30px;
+.scrolling-wrapper {
+  overflow-x: auto;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+@media (min-width: 576px) {
+  .card-group.card-group-scroll {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+.card-group.card-group-scroll>.card {
+  flex-basis: 35%;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 7.5px;
+}
+
+::-webkit-scrollbar {
+  width: 7.5px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 7.5px;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, #fd7bbc), color-stop(0.72, #fc3699), color-stop(0.86, #df0056));
 }
 </style>
