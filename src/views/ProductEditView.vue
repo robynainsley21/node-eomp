@@ -84,5 +84,10 @@ export default {
 img {
     width: 25rem;
 }
-
+.prodImg {
+  border: none;
+  -webkit-filter: drop-shadow(2px 2px 0 #e21861)
+    drop-shadow(-2px -2px 0 #e21861);
+  filter: drop-shadow(2px 2px 0 #e21861) drop-shadow(-2px -2px 0 #e21861);
+}
 </style>
