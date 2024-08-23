@@ -56,7 +56,7 @@ components: {
 
 <style scoped>
 img{
-    width: 25rem;
+    width: 20rem;
 }
 /* .singleProduct{
     margin-top: 65px;

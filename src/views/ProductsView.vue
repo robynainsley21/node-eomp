@@ -2,8 +2,9 @@
     <div class="container pb-3">
         <div class="products">
             <h1 class="mb-2 text-start">/Products</h1>
-        <div class="row justify-content-center" v-if="products">
-            <Card v-for="product in products()" :key="product.prodID">
+
+        <div  class="row justify-content-center" v-if="products">
+            <Card data-aos="fade-up" v-for="product in products()" :key="product.prodID">
                 <template #cardHeader>
                     <img :src="product.prodURL" loading="lazy" class="small-img img-fluid rounded mx-auto d-block card-img-top" :alt="product.prodName">
                 </template>
@@ -12,7 +13,7 @@
                     <h5 class="card-title">{{ product.category }}</h5>
                     <p class="lead"><span class="text-success">Quantity</span>: {{ product.quantity }}</p>
                     <p class="lead"><span class="text-success">Amount</span>: R{{ product.amount }}</p>
-                    <router-link :to="{name: 'productDetail',params:{id:product.prodID}}"><i class="bi bi-arrow-right-circle-fill"></i></router-link>
+                    <router-link :to="{name: 'productDetail',params:{id:product.prodID}}"><i class="fas bi-arrow-right-circle-fill fa-10x"></i></router-link>
                 </template>
             </Card>
         </div>
@@ -55,5 +56,16 @@ components: {
 .products{
     margin-top: 120px;
     width: 100%;
+}
+h1{
+    font-size: 2rem;
+}
+
+.card-img-top{
+    width: 10rem;
+}
+i{
+    font-size: 2rem;
+    color: #e21861;
 }
 </style>

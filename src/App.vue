@@ -8,12 +8,17 @@
 <script>
 import NavComp from "@/components/NavBarComp.vue";
 import FooterComp from "@/components/FooterComp.vue";
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 export default {
   components: {
     NavComp,
     FooterComp
   },
+  mounted() {
+    AOS.init();
+  }
 };
 </script>
 <style>

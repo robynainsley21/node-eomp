@@ -251,7 +251,7 @@ export default createStore({
     async deleteProduct(context, id) {
       try {
         const { msg } = await (
-          await axios.delete(`${apiURL}products/update/${id}`)
+          await axios.delete(`${apiURL}products/delete/${id}`)
         ).data;
         if (msg) {
           context.dispatch("fetchProducts");

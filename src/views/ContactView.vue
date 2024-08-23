@@ -3,11 +3,11 @@
         <div class="container text-white bg-transparent with-blur-backdrop rounded">
             <h1 class="text-center contactMain">CONTACT US:</h1>
             <form action="https://formspree.io/f/mgvwwenn" class="row g-3" method="POST" target="_blank">
-                <div class="col-md-6 order-md-2">
+                <div data-aos="fade-down" class="col-md-6 order-md-2">
                     <img src="https://aneeqbass.github.io/ecommerceImages/contactImg.jpg" class="img-thumbnail cont-img"
                         alt="">
                 </div>
-                <div class="col-md-6 order-md-1">
+                <div data-aos="fade-up" class="col-md-6 order-md-1">
                     <label for="inputName" class="form-label">First Name</label>
                     <input type="text" class="form-control" id="inputName" name="First Name" required>
                     <label for="inputLastName" class="form-label">Surname</label>

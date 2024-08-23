@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h5>Products</h5>
-    <input v-model="searchQuery" placeholder="Search Products..." class="form-control mb-3"/>
+    <input v-model="searchQuery" placeholder="Search Products..." class="form-control mb-3" />
     <div class="table-responsive" v-if="filteredProducts.length">
       <table class="table table-products">
         <thead>
@@ -28,7 +28,8 @@
               </router-link>
             </td>
             <td>
-              <button class="btn btn-sm" @click="deleteProduct(product.prodID)"><i class="bi bi-trash-fill"></i></button>
+              <button class="btn btn-sm" @click="deleteProduct(product.prodID)"><i
+                  class="bi bi-trash-fill"></i></button>
             </td>
           </tr>
         </tbody>
@@ -38,9 +39,13 @@
       <Spinner v-if="loading" />
       <p v-else>No products found.</p>
     </div>
-    <router-link :to="{ name: 'productAdd' }">
-      <button class="btn btn-primary btn-sm"><i class="bi bi-plus-square-fill"></i></button>
-    </router-link>
+    <div class="d-flex justify-content-center align-items-center">
+      <p class="my-auto">Add Product</p>
+      <router-link :to="{ name: 'productAdd' }">
+        <i class="bi-plus-square-fill mx-2"></i>
+      </router-link>
+    </div>
+<hr>
   </div>
 </template>
 
@@ -81,7 +86,7 @@ export default {
       if (confirm('Are you sure you want to delete this product?')) {
         this.$store.dispatch('deleteProduct', productID)
           .then(() => {
-            this.fetchProducts();  // Refresh the product list after deletion
+            this.fetchProducts();
           })
           .catch(err => {
             console.error('Failed to delete product:', err);
@@ -103,19 +108,23 @@ export default {
   max-width: 100%;
 }
 
-.table-products th, 
+.table-products th,
 .table-products td {
-  white-space: nowrap;  /* Prevent text from wrapping */
+  white-space: nowrap;
   vertical-align: middle;
 }
 
 @media (max-width: 575px) {
-  .table-products th, .table-products td {
-    font-size: 0.8rem;  /* Smaller font size for mobile */
+
+  .table-products th,
+  .table-products td {
+    font-size: 0.8rem;
+    /* Smaller font size for mobile */
   }
 }
 
-.btn-sm {
-  font-size: 0.8rem;  /* Smaller button size */
+i {
+  font-size: 2rem;
+  color: #e21861;
 }
 </style>

@@ -42,9 +42,12 @@
       <Spinner v-if="loading" />
       <p v-else>No users found.</p>
     </div>
-    <router-link :to="{ name: 'userAdd' }">
-      <button class="btn btn-primary btn-sm"><i class="bi bi-plus-square-fill"></i></button>
-    </router-link>
+    <div class="d-flex justify-content-center align-items-center mb-4">
+      <p class="my-auto">Add User</p>
+      <router-link :to="{ name: 'userAdd' }">
+        <i class="bi bi-plus-square-fill mx-2"></i>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -121,5 +124,10 @@ export default {
 
 .btn-sm {
   font-size: 0.8rem;  /* Smaller button size */
+}
+
+i {
+  font-size: 2rem;
+  color: #e21861;
 }
 </style>

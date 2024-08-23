@@ -1,6 +1,6 @@
 <template>
  <div class="col-md-4 mb-3">
-    <div class="card">
+    <div class="card m-auto">
     <div class="card-header">
       <slot name="cardHeader"></slot>
     </div>
@@ -19,4 +19,9 @@ export default {
 
 <style scoped>
 
+@media screen and (min-width: 991px) and (max-width: 1200px){
+.card{
+  height: 405px;
+} 
+}
 </style>

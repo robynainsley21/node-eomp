@@ -2,7 +2,7 @@
   <div>
   <nav class="navbar navbar-expand-lg bg-transparent position-fixed w-100 sticky-top">
     <div class="container-fluid m-auto">
-      <i><img src="https://aneeqbass.github.io/node-eomp-images/techfitLogoBgTransparent.png" class="logo" loading="lazy" alt=""></i>
+      <router-link to="/" class="nav-link" ><img src="https://aneeqbass.github.io/node-eomp-images/techfitLogoBgTransparent.png" class="logo" loading="lazy" alt=""></router-link>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
