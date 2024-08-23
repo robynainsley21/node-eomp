@@ -3,10 +3,7 @@ import axios from "axios";
 import router from "@/router";
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
-// import { applyToken } from "@/service/AuthenticateUser.js";
-// import { useCookies } from "vue3-cookies"; 
 
-// const { cookies } = useCookies();
 const apiURL = "https://node-eomp-pav1.onrender.com/";
 
 export default createStore({
@@ -138,37 +135,6 @@ export default createStore({
         });
       }
     },
-    // async login(context, payload) {
-    //   try {
-    //     const { msg, result, token } = await (
-    //       await axios.post(`${apiURL}user/login`, payload)
-    //     ).data;
-
-    //     if (result) {
-    //       toast.success(`${msg}😎`, {
-    //         autoClose: 2000,
-    //         position: toast.POSITION.BOTTOM_CENTER,
-    //       });
-    //       context.commit("setUser", {
-    //         msg,
-    //         result,
-    //       });
-    //       cookies.set("LegitUser", { token, msg, result });
-    //       applyToken(token);
-    //       router.push({ name: "products" });
-    //     } else {
-    //       toast.error(`${msg}`, {
-    //         autoClose: 2000,
-    //         position: toast.POSITION.BOTTOM_CENTER,
-    //       });
-    //     }
-    //   } catch (e) {
-    //     toast.error(`${e.message}`, {
-    //       autoClose: 2000,
-    //       position: toast.POSITION.BOTTOM_CENTER,
-    //     });
-    //   }
-    // },
     async fetchProducts({commit}) {
       try {
         let { data, msg } =  await axios.get(`${apiURL}products`) 

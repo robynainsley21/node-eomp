@@ -20,15 +20,17 @@
                     <br>
                     <button class="form-control submitBnt">Submit</button>
                     <br><br>
-                    <h5>Our Info:</h5>
-                    <p id="infoEmail">Email: </p>
-                    <p id="infoPhone">Phone: 076 048 6780</p>
-                    <hr>
-                    <h5>Follow us:</h5>
-                    <div class="socialLinks">
-                        <a href="https://facebook.com/" target="_blank"><img class="facebookLogo" src=""
-                                alt="">@</a><br>
-                        <a href="https://www.instagram.com/" target="_blank"><img class="instaLogo" src="" alt="">@</a>
+                    <div class="">
+                        <br>
+                        <h4>Contact Us</h4>
+                        <li>Phone: 021 345 6789</li>
+                        <li>Email: techfit@gmail.com</li>
+                        <li>Location: Cape Town</li>
+                        <div class="d-flex justify-content-evenly p-2">
+                            <li><i class="bi bi-facebook"></i></li>
+                            <li><i class="bi bi-linkedin fa-6x"></i></li>
+                            <li><i class="bi bi-twitter"></i></li>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -46,5 +48,6 @@ export default {
 .contact {
     margin-top: 120px;
     width: 100%;
+    list-style: none;
 }
 </style>
