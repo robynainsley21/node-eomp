@@ -31,7 +31,7 @@
       </div>
       <div class="mb-3">
         <label for="addUserProfile" class="form-label">Profile Pic</label>
-        <input v-model="user.userProfile" type="url" class="form-control text-center" id="addUserProfile" required>
+        <input v-model="user.userProfile" type="url" class="form-control text-center" id="addUserProfile">
       </div>
       <div class="pb-3">
         <button type="submit" class="btn btn-primary">Save changes</button>
