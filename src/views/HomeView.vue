@@ -146,4 +146,10 @@ button:hover {
 .card-body {
   color: white;
 }
+
+@media screen and (max-width: 768px){
+  .home{
+    margin-top: 140px;
+  }
+}
 </style>
